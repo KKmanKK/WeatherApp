@@ -1,16 +1,11 @@
-export const url = 'https://geosource-api.p.rapidapi.com/locationByCity.php';
+
+
+export const urlGeo = 'https://wft-geo-db.p.rapidapi.com/v1/geo';
+export const urlWeather = 'https://api.openweathermap.org/data/2.5';
 export const options = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': '8f52747013msh1c17e61bfbcd9f7p1e1e36jsna789c864ab2c',
-    'X-RapidAPI-Host': 'geosource-api.p.rapidapi.com',
-  },
+    'X-RapidAPI-Key': '6fa276b963msh7383287752700dcp1175b6jsn576bf5850b57',
+    'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
+  }
 };
-
-// try {
-// 	const response = await fetch(url, options);
-// 	const result = await response.text();
-// 	console.log(result);
-// } catch (error) {
-// 	console.error(error);
-// }
