@@ -1,0 +1,21 @@
+.wrapper_cart {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.cart {
+  margin: 10px 0 0 0;
+  width: 70%;
+  max-height: 100px;
+  height: 100%;
+  border: 1px solid black;
+  padding: 10px;
+}
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.top_info {
+}
+.top_img {
+}

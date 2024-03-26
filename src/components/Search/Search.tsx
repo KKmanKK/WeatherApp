@@ -3,7 +3,9 @@ import style from './Search.module.css';
 import { useDebounce } from '../../hooks/useDebounce';
 import { options, urlGeo, urlWeather } from '../../features/api';
 import { SearchList } from '../SearchList/SearchList';
-interface iSearch {}
+interface iSearch {
+  handleClickSity(s: IDataCity): void;
+}
 export interface IDataCity {
   id: number;
   name: string;
@@ -11,7 +13,7 @@ export interface IDataCity {
   latitude: number;
   longitude: number;
 }
-export const Search: FC<iSearch> = () => {
+export const Search: FC<iSearch> = ({ handleClickSity }) => {
   const [value, setValue] = useState('');
   const [dataCity, setDataSity] = useState<IDataCity[]>([
     // { id: 1, name: 'name', countryCode: 'sd', latitude: 1, longitude: 4 },
@@ -19,7 +21,6 @@ export const Search: FC<iSearch> = () => {
   ]);
   const debounceValue = useDebounce(value, 500);
   const [loadingDataCity, setLoadingDataCity] = useState(false);
-  const [watherData, setWatherData] = useState({});
   useEffect(() => {
     async function fetchDataCity() {
       try {
@@ -44,22 +45,8 @@ export const Search: FC<iSearch> = () => {
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setValue(e.target.value);
   };
-  const handleClickSity = (s: IDataCity) => {
-    async function fetchDataWeaher() {
-      try {
-        debugger;
-        const response = await fetch(
-          `${urlWeather}/weather?lat=${s.latitude}&lon=${s.longitude}&appid=3f209075abe13cf37c34be6fb2ceae05`,
-          options,
-        );
-        const result = await response.json();
-        console.log(result);
-        setValue('');
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    fetchDataWeaher();
+  const changeValue = () => {
+    setValue('');
   };
   return (
     <section className={style.wrapper}>
@@ -75,6 +62,7 @@ export const Search: FC<iSearch> = () => {
             data={dataCity}
             loadingDataCity={loadingDataCity}
             handleClickSity={handleClickSity}
+            changeValue={changeValue}
           />
         ) : (
           ' '
