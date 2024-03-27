@@ -22,7 +22,28 @@ export const DataWeather: FC<IDataWeather> = ({ weatherData }) => {
             src={`/assets/icons/${weatherData.icon}.png`}
           />
         </div>
-        <div></div>
+        <div className={styles.bottom}>
+          <div className={styles.temp}>{Math.round(weatherData.temp)}℃</div>
+          <div className={styles.detailes}>
+            <div className={styles.subTitle}>Детали</div>
+            <div className={styles.details_item}>
+              <div>Чувствуется как</div>
+              <div>{Math.round(weatherData.feels_like)}</div>
+            </div>
+            <div className={styles.details_item}>
+              <div>Ветер</div>
+              <div> {weatherData.wind_speed}</div>
+            </div>
+            <div className={styles.details_item}>
+              <div>Влажность</div>
+              <div> {weatherData.humidity}</div>
+            </div>
+            <div className={styles.details_item}>
+              <div>Давление</div>
+              <div> {weatherData.pressure}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

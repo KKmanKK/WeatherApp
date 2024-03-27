@@ -22,23 +22,25 @@ export const Search: FC<iSearch> = ({ handleClickSity }) => {
   const debounceValue = useDebounce(value, 500);
   const [loadingDataCity, setLoadingDataCity] = useState(false);
   useEffect(() => {
-    async function fetchDataCity() {
-      try {
-        setLoadingDataCity(true);
-        const response = await fetch(
-          `${urlGeo}/cities?namePrefix=${debounceValue}`,
-          options,
-        );
-        const result = await response.json();
-        console.log(result.data);
-        setLoadingDataCity(false);
-        setDataSity(result.data);
-      } catch (error) {
-        console.error(error);
+    if (value.trim() !== '' && value.length > 2) {
+      async function fetchDataCity() {
+        try {
+          setLoadingDataCity(true);
+          const response = await fetch(
+            `${urlGeo}/cities?namePrefix=${debounceValue}`,
+            options,
+          );
+          const result = await response.json();
+          console.log(result.data);
+          setLoadingDataCity(false);
+          setDataSity(result.data);
+        } catch (error) {
+          console.error(error);
+        }
       }
-    }
-    if (debounceValue) {
-      fetchDataCity();
+      if (debounceValue) {
+        fetchDataCity();
+      }
     }
   }, [debounceValue]);
 
@@ -57,7 +59,7 @@ export const Search: FC<iSearch> = ({ handleClickSity }) => {
           value={value}
           onChange={(e) => handleChange(e)}
         />
-        {dataCity.length > 2 && value.trim() !== '' ? (
+        {dataCity.length > 2 && value.trim().length > 2 ? (
           <SearchList
             data={dataCity}
             loadingDataCity={loadingDataCity}
