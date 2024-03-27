@@ -2,11 +2,20 @@ body {
   background-color: #78c6d3;
 }
 .wrapper {
-  max-width: 600px;
-  width: 100%;
   margin: 20vh auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
+}
+.title {
+  font-size: 50px;
+  color: white;
+  color: #af4d1c;
+  margin: 0 0 20px 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: lighter;
+}
+.wrapper__cart {
+  width: 100%;
 }

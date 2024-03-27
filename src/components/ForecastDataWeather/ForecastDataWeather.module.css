@@ -1,0 +1,31 @@
+.dataDay {
+  width: 70%;
+}
+.title {
+}
+.day {
+  background-color: antiquewhite;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 10px;
+  color: #af4d1c;
+  border: 1px solid #ab1d1d;
+  padding: 10px;
+}
+.day_name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.day_name img {
+  width: 60px;
+}
+.day_short_info {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+  align-items: center;
+}
+.day_info {
+  margin: 0 0 20px 0;
+}

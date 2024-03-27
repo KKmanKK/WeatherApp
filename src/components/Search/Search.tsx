@@ -27,7 +27,7 @@ export const Search: FC<iSearch> = ({ handleClickSity }) => {
         try {
           setLoadingDataCity(true);
           const response = await fetch(
-            `${urlGeo}/cities?namePrefix=${debounceValue}`,
+            `${urlGeo}/cities?minPopulation=10000&namePrefix=${debounceValue}`,
             options,
           );
           const result = await response.json();
