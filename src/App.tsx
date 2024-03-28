@@ -53,10 +53,10 @@ function App() {
           pressure: currentWeatherData.main.pressure,
         });
         const forecastWeatherData = await response[1].json();
-        let arr: IForecastDataWeather[] = [];
+        let arrFrecast: IForecastDataWeather[] = [];
         let arr2: any[] = forecastWeatherData.list;
-        arr2.forEach((el) =>
-          arr.push({
+        arr2.slice(0, 7).forEach((el) =>
+          arrFrecast.push({
             description: el.weather[0].description,
             icon: el.weather[0].icon,
             temp_min: el.main.temp_min,
@@ -69,8 +69,7 @@ function App() {
             sea_level: el.main.sea_level,
           }),
         );
-        console.log(forecastWeatherData.list);
-        setForecastWeatherData(arr.slice(0, 7));
+        setForecastWeatherData(arrFrecast);
       } catch (error) {
         console.error(error);
       }

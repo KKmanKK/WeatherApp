@@ -15,12 +15,21 @@ export interface IDataCity {
 }
 export const Search: FC<iSearch> = ({ handleClickSity }) => {
   const [value, setValue] = useState('');
-  const [dataCity, setDataSity] = useState<IDataCity[]>([
-    // { id: 1, name: 'name', countryCode: 'sd', latitude: 1, longitude: 4 },
-    // { id: 1, name: 'name', countryCode: 'sd', latitude: 1, longitude: 4 },
-  ]);
+  const [dataCity, setDataSity] = useState<IDataCity[]>([]);
   const debounceValue = useDebounce(value, 500);
   const [loadingDataCity, setLoadingDataCity] = useState(false);
+  const checkDuble = (arr: any[]) => {
+    let map: any = {};
+    let arr2: any[] = [];
+
+    arr.forEach((el) => {
+      if (!map[el.latitude]) {
+        map[el.latitude] = el;
+        arr2.push(map[el.latitude]);
+      }
+    });
+    return arr2;
+  };
   useEffect(() => {
     if (value.trim() !== '' && value.length > 2) {
       async function fetchDataCity() {
@@ -33,7 +42,9 @@ export const Search: FC<iSearch> = ({ handleClickSity }) => {
           const result = await response.json();
           console.log(result.data);
           setLoadingDataCity(false);
-          setDataSity(result.data);
+          let arr: any[] = [];
+          arr = checkDuble(result.data);
+          setDataSity(arr);
         } catch (error) {
           console.error(error);
         }
@@ -62,10 +73,11 @@ export const Search: FC<iSearch> = ({ handleClickSity }) => {
           value={value}
           onChange={(e) => handleChange(e)}
         />
-        {dataCity.length > 0 && value.length > 2 ? (
+        {loadingDataCity ? (
+          'Loading...'
+        ) : dataCity && dataCity.length > 0 && value.length > 2 ? (
           <SearchList
             data={dataCity}
-            loadingDataCity={loadingDataCity}
             handleClickSity={handleClickSity}
             changeValue={changeValue}
             changeDataCity={changeDataCity}

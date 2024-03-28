@@ -21,7 +21,7 @@ export const SearchItem: FC<ISearchItem> = ({
   };
   return (
     <div className={styles.item} onClick={onClick}>
-      {dataCity.name}{' '}
+      {`${dataCity.name} ${dataCity.countryCode}`}
     </div>
   );
 };

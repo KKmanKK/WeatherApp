@@ -23,6 +23,7 @@
 }
 
 .top_img {
+  justify-self: center;
 }
 .bottom {
   display: grid;
