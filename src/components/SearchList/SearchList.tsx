@@ -7,12 +7,14 @@ interface ISearchList {
   loadingDataCity: boolean;
   handleClickSity: (s: IDataCity) => void;
   changeValue: () => void;
+  changeDataCity: () => void;
 }
 export const SearchList: FC<ISearchList> = ({
   data,
   loadingDataCity,
   handleClickSity,
   changeValue,
+  changeDataCity,
 }) => {
   return (
     <div className={styles.list}>
@@ -26,6 +28,7 @@ export const SearchList: FC<ISearchList> = ({
               dataCity={el}
               handleClickSity={handleClickSity}
               changeValue={changeValue}
+              changeDataCity={changeDataCity}
             />
           ))}
         </>

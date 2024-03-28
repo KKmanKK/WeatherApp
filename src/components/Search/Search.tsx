@@ -50,6 +50,9 @@ export const Search: FC<iSearch> = ({ handleClickSity }) => {
   const changeValue = () => {
     setValue('');
   };
+  const changeDataCity = () => {
+    setDataSity([]);
+  };
   return (
     <section className={style.wrapper}>
       <div className={style.inputwrapper}>
@@ -59,12 +62,13 @@ export const Search: FC<iSearch> = ({ handleClickSity }) => {
           value={value}
           onChange={(e) => handleChange(e)}
         />
-        {dataCity.length > 2 && value.trim().length > 2 ? (
+        {dataCity.length > 0 && value.length > 2 ? (
           <SearchList
             data={dataCity}
             loadingDataCity={loadingDataCity}
             handleClickSity={handleClickSity}
             changeValue={changeValue}
+            changeDataCity={changeDataCity}
           />
         ) : (
           ' '

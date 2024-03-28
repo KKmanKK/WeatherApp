@@ -25,21 +25,21 @@ export const DataWeather: FC<IDataWeather> = ({ weatherData }) => {
         <div className={styles.bottom}>
           <div className={styles.temp}>{Math.round(weatherData.temp)}℃</div>
           <div className={styles.detailes}>
-            <div className={styles.subTitle}>Детали</div>
+            <div className={styles.subTitle}>Details</div>
             <div className={styles.details_item}>
-              <div>Чувствуется как</div>
+              <div>Feels like</div>
               <div>{Math.round(weatherData.feels_like)}℃</div>
             </div>
             <div className={styles.details_item}>
-              <div>Ветер</div>
+              <div>Wind</div>
               <div> {weatherData.wind_speed}m/s</div>
             </div>
             <div className={styles.details_item}>
-              <div>Влажность</div>
+              <div>Humidity</div>
               <div> {weatherData.humidity}%</div>
             </div>
             <div className={styles.details_item}>
-              <div>Давление</div>
+              <div>Pressure</div>
               <div> {weatherData.pressure}hPa</div>
             </div>
           </div>

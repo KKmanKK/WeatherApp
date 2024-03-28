@@ -1,0 +1,18 @@
+.day_info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  gap: 5px;
+  color: #af4d1c;
+  background-color: #fffbf6;
+  border: 1px solid #ab1d1d;
+  border-top: 0;
+}
+.day_infoPart {
+}
+.day_partItem {
+  display: flex;
+  justify-content: space-between;
+}
+.day_infoPart:last-child {
+}

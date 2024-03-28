@@ -2,7 +2,7 @@ body {
   background-color: #78c6d3;
 }
 .wrapper {
-  margin: 20vh auto;
+  margin: 5vh auto;
   display: flex;
   flex-direction: column;
   align-items: center;
