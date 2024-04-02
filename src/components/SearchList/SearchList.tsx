@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { IDataCity } from '../Search/Search';
 import { SearchItem } from '../SearchItem/SearchItem';
 import styles from './SearchList.module.css';
+import { IDataCity } from '../../types';
 interface ISearchList {
   data: IDataCity[];
   handleClickSity: (s: IDataCity) => void;

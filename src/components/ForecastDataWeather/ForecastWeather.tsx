@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react';
 import styles from './ForecastDataWeather.module.css';
-import { ICurrentWeatherData, IForecastDataWeather } from '../../App';
 import { DayInfo } from '../DayInfo/DayInfo';
 import { DayNext } from '../DayNext/DayNext';
+import { IForecastDataWeather } from '../../types';
 
 interface IForecastWeatherProps {
   data: IForecastDataWeather[] | undefined;

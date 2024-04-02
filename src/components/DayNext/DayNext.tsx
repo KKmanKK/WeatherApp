@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import styles from './DayNext.module.css';
-import { ICurrentWeatherData, IForecastDataWeather } from '../../App';
 import { DayInfo } from '../DayInfo/DayInfo';
+import { IForecastDataWeather } from '../../types';
 interface IDayNexProps {
   data: IForecastDataWeather | undefined;
   weekDay: string;

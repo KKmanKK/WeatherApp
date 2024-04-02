@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { ICurrentWeatherData } from '../../App';
 import styles from './CurrentDataWeather.module.css';
+import { ICurrentWeatherData } from '../../types';
 
 interface IDataWeather {
   weatherData: ICurrentWeatherData | undefined;

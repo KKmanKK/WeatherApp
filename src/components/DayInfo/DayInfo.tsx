@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styles from './DayInfo.module.css';
-import { ICurrentWeatherData, IForecastDataWeather } from '../../App';
+import { IForecastDataWeather } from '../../types';
 interface IDayInfoProps {
   data: IForecastDataWeather;
 }
